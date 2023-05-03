@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import banner from '../../assets/banner-01.png'
 import About from '../About/About';
+import Chef from '../Chef/Chef';
 
 const Home = () => {
     const [chef, setChef] = useState([]);
@@ -13,7 +14,7 @@ const Home = () => {
 
         fetch('https://famous-chef-server-coders-rabbi.vercel.app/famous-chef')
             .then(res => res.json())
-            .then(data => console.log(data))
+            .then(data => setChef(data))
     }, [])
     return (
         <div className='container mx-auto'>
@@ -29,7 +30,16 @@ const Home = () => {
                     </button>
                 </div>
             </div>
-                <About></About>
+            <About></About>
+
+            <div className='mt-20 grid md:grid-cols-3 gap-9 mx-auto'>
+                {
+                    chef.map(data => <Chef
+                        key={data.id}
+                        chef={data}
+                    ></Chef>)
+                }
+            </div>
         </div>
     );
 };
