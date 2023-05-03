@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaBeer, FaRegThumbsUp } from 'react-icons/fa';
+import {  FaRegThumbsUp } from 'react-icons/fa';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBookmark, faBowlFood } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom';

@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import SingleRecipe from '../SingleRecipe/SingleRecipe';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBookmark, faBowlFood, faThumbsUp } from '@fortawesome/free-solid-svg-icons'
+import 'flowbite';
 
 const RecipeDetails = () => {
     const [recipes, setRecipes] = useState([]);
@@ -33,17 +36,17 @@ const RecipeDetails = () => {
     // console.log(recipe);
 
     return (
-        <div className='container mx-auto'>
-            <div className='flex'>
-                <img className='w-1/3' src={chefInfo?.img} alt="" />
-                <div>
-                    <div className='flex justify-around'>
-                        <p>Experiance: {chefInfo?.experiance}</p>
-                        <p>Recipe: {chefInfo?.recipies}</p>
-                        <p>Like: {chefInfo?.likes}</p>
+        <div className='container mx-auto mt-6'>
+            <div className='flex items-center bg-header-bg shadow-emerald-50 rounded-md mb-14 w-1/2 gap-6'>
+                <img className='w-1/4 rounded-md' src={chefInfo?.img} alt="" />
+                <div className='pe-6'>
+                    <div className='flex justify-between mb-2'>
+                        <p className='flex items-center gap-2 text-2xl'><FontAwesomeIcon icon={faBookmark} />Experiance: {chefInfo?.experiance}</p>
+                        <p className='flex items-center gap-2 text-2xl border-s-2 border-logo-color ps-6'><FontAwesomeIcon icon={faBowlFood} />Recipe: {chefInfo?.recipies}</p>
+                        <p className='flex items-center gap-2 text-2xl border-s-2 border-logo-color ps-10'><FontAwesomeIcon icon={faThumbsUp} /> {chefInfo?.likes}</p>
                     </div>
-                    <h1>Name: {chefInfo?.name}</h1>
-                    <p>Bio: {chefInfo?.bio}</p>
+                    <h1 className='mb-2'><span className='text-2xl font-semibold'>Name :</span> <span className='font-semibold'>{chefInfo?.name}</span></h1>
+                    <p className='leading-7'>Bio: {chefInfo?.bio}</p>
                 </div>
             </div>
             <div className='grid grid-cols-3 gap-4'>
