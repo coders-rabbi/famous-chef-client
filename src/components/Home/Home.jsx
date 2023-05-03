@@ -17,7 +17,7 @@ const Home = () => {
             .then(data => setChef(data))
     }, [])
     return (
-        <div className='container mx-auto'>
+        <div className='container mx-auto border border-logo-color px-4'>
             <div className='relative'>
                 <img className='w-fit' src={banner} alt="" />
                 {/* <h1 className='absolute text-5xl text-white top-1/3 left-1/3 -translate-x-1/2 -translate-y-1/2 '>Welcome To Famous Chef</h1> */}
