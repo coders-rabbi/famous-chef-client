@@ -32,13 +32,16 @@ const Home = () => {
             </div>
             <About></About>
 
-            <div className='mt-20 grid md:grid-cols-3 gap-9 mx-auto'>
+            <div className='mt-5'>
+                <h1 className='text-5xl font-bold text-center'>Our Chef</h1>
+                <div className='mt-16 grid md:grid-cols-3 gap-3 mx-auto'>
                 {
                     chef.map(data => <Chef
                         key={data.id}
                         chef={data}
                     ></Chef>)
                 }
+            </div>
             </div>
         </div>
     );

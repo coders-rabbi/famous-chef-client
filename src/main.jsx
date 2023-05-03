@@ -11,6 +11,7 @@ import Home from './components/Home/Home.jsx';
 import Registration from './components/Registration/Registration.jsx';
 import Login from './components/Login/Login.jsx';
 import BLog from './components/Blog/BLog.jsx';
+import RecipeDetails from './components/RecipeDetails/RecipeDetails.jsx';
 
 
 const router = createBrowserRouter([
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
       {
         path: "/blog",
         element: <BLog></BLog>
+      },
+      {
+        path:"/recipesDetails/:recipesId",
+        element: <RecipeDetails></RecipeDetails>
       },
       {
         path: "/login",
