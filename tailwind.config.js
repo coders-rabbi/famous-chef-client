@@ -10,6 +10,8 @@ export default {
         'header-bg': '#0F1D22', 
         'logo-color':'#c9ab81',
       },
+      container: {
+      },
     },
   },
   plugins: [],
