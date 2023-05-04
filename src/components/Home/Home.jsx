@@ -3,6 +3,7 @@ import { useLoaderData } from 'react-router-dom';
 import banner from '../../assets/banner-01.png'
 import About from '../About/About';
 import Chef from '../Chef/Chef';
+import Footer from '../Footer/Footer';
 
 const Home = () => {
     const [chef, setChef] = useState([]);
@@ -35,14 +36,15 @@ const Home = () => {
             <div className='mt-5'>
                 <h1 className='text-5xl font-bold text-center'>Our Chef</h1>
                 <div className='mt-16 grid md:grid-cols-3 gap-5 mx-auto'>
-                {
-                    chef.map(data => <Chef
-                        key={data.id}
-                        chef={data}
-                    ></Chef>)
-                }
+                    {
+                        chef.map(data => <Chef
+                            key={data.id}
+                            chef={data}
+                        ></Chef>)
+                    }
+                </div>
             </div>
-            </div>
+            <Footer></Footer>
         </div>
     );
 };
