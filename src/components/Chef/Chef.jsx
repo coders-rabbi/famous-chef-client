@@ -9,7 +9,7 @@ const Chef = ({ chef }) => {
     const { chef_id, img, name, bio, experiance, recipies, likes } = chef;
     return (
         
-        <div>
+        <div className='mx-auto'>
             <div className="card card-compact w-96 shadow-xl bg-header-bg mb-10">
                 <figure><img className='h-96 w-full' src={img} alt="Shoes" /></figure>
                 <div className="card-body">
