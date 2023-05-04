@@ -4,6 +4,7 @@ import banner from '../../assets/banner-01.png'
 import About from '../About/About';
 import Chef from '../Chef/Chef';
 import Footer from '../Footer/Footer';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Home = () => {
     const [chef, setChef] = useState([]);

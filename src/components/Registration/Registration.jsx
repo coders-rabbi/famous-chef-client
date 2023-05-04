@@ -80,7 +80,7 @@ const Registration = () => {
                             </div>
                         </form>
                         <p className='text-center mb-5 text-black'>
-                            <Link to="/login">Already have an account? Please Login</Link>
+                            <Link to="/login">Already have an account?<button className='btn btn-link p-2'>Login</button></Link>
                         </p>
                     </div>
                 </div>

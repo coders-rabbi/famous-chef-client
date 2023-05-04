@@ -1,11 +1,16 @@
-import React, { useContext } from 'react';
+import React, { useContext, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { FaGoogle, FaGithub } from 'react-icons/fa';
 import { AuthContext } from '../AuthProvider/AuthProvider';
+import { ToastContainer, toast } from 'react-toastify';
+import { GoogleAuthProvider } from 'firebase/auth';
+
 
 const Login = () => {
+    const { signIn, passwordReset, googleSingIn } = useContext(AuthContext);
+    const emailRef = useRef();
 
-    const { signIn } = useContext(AuthContext);
+    const googleProvider = new GoogleAuthProvider();
 
     const handleLogin = event => {
         event.preventDefault();
@@ -24,6 +29,30 @@ const Login = () => {
                 console.log(error)
             });
     }
+
+    const handlePasswordReset = () => {
+        const email = emailRef.current.value;
+        if (!email) {
+            toast("Enter Your Email Please !");
+        }
+        passwordReset(email)
+            .then(() => {
+                toast("Please Check your Email !");
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    }
+    
+    const handleGoogleSignIn = () =>{
+        googleSingIn(googleProvider)
+        .then(result =>{
+            const loggedUser = result.user;
+            toast("Google Sing In SuccessFully !");
+        })
+        .catch(error =>console.error(error));
+    }
+
     return (
         <div className='container mx-auto mt-20 min-h-screen'>
             <div className="w-3/6 mx-auto bg-header-bg py-14 px-7 rounded-2xl">
@@ -38,23 +67,23 @@ const Login = () => {
                                 <label className="label">
                                     <span className="label-text">Email</span>
                                 </label>
-                                <input type="email" name='email' placeholder="email" className="input input-bordered text-black" required />
+                                <input type="email" name='email' ref={emailRef} placeholder="email" className="input input-bordered text-black" required />
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Password</span>
                                 </label>
                                 <input type="password" name='password' placeholder="password" className="input input-bordered text-black" required />
-                                <label className="label">
-                                    <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
-                                </label>
                             </div>
-                            <div className="form-control mt-6">
+                            <div className="form-control mt-10">
                                 <button className="btn btn-primary">Login</button>
                             </div>
                         </form>
+                        <div className='px-8'>
+                            <button onClick={handlePasswordReset} className='btn btn-link p-0'>Forgot password?</button>
+                        </div>
                         <div className='flex justify-between px-8 mb-6'>
-                            <button className="btn btn-outline btn-primary flex gap-2">< FaGoogle />Google</button>
+                            <button onClick={handleGoogleSignIn} className="btn btn-outline btn-primary flex gap-2">< FaGoogle />Google</button>
                             <button className="btn btn-outline btn-primary flex gap-2">< FaGithub />GitHub</button>
                         </div>
                         <p className='text-center mb-5 text-black'>
@@ -63,6 +92,7 @@ const Login = () => {
                     </div>
                 </div>
             </div>
+            <ToastContainer></ToastContainer>
         </div>
     );
 };
