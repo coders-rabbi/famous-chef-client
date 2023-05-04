@@ -12,8 +12,8 @@ const BLog = () => {
                 </Pdf>
             </div>
             <div>
-                <div className='container mx-auto' ref={ref}>
-                    <div>
+                <div className='container mx-auto grid grid-cols-2 gap-6' ref={ref}>
+                    <div className='border'>
                         <h1 className='text-2xl font-semibold'><span className='font-bold'>Question:</span> Tell us the differences between uncontrolled and controlled components.</h1>
                         <p><span className='font-bold'>Answer:</span><small>Uncontrolled Components: Components that manage their own state internally, allowing users to directly interact with them without explicit control from a parent component. They have a one-way data flow and are often used for form inputs when immediate access to the input's DOM value is required. Controlled Components: Components whose state is managed by a parent component or an external entity. The state is passed down to the component through props, and any changes to the state are handled by the parent component. Controlled components have a two-way data flow and are commonly used for form inputs when validation and stricter control over the input values are needed.</small></p>
                     </div>
