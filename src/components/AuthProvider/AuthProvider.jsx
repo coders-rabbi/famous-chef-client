@@ -32,6 +32,10 @@ const AuthProvider = ({children}) => {
         return signInWithPopup (auth, googleProvider);
     }
 
+    const githubSingIn = (githubProvider) =>{
+        return signInWithPopup (auth, githubProvider);
+    }
+
     useEffect(()=>{
         const unsubscribe =onAuthStateChanged(auth, currentUser =>{
             console.log('auth state changed', currentUser);
@@ -49,7 +53,8 @@ const AuthProvider = ({children}) => {
         signIn,
         logOut,
         passwordReset,
-        googleSingIn
+        googleSingIn,
+        githubSingIn
     
     
     };

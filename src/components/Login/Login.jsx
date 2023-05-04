@@ -3,14 +3,15 @@ import { Link } from 'react-router-dom';
 import { FaGoogle, FaGithub } from 'react-icons/fa';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import { ToastContainer, toast } from 'react-toastify';
-import { GoogleAuthProvider } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 
 
 const Login = () => {
-    const { signIn, passwordReset, googleSingIn } = useContext(AuthContext);
+    const { signIn, passwordReset, googleSingIn, githubSingIn } = useContext(AuthContext);
     const emailRef = useRef();
 
     const googleProvider = new GoogleAuthProvider();
+    const githubProvider = new GithubAuthProvider();
 
     const handleLogin = event => {
         event.preventDefault();
@@ -43,14 +44,23 @@ const Login = () => {
                 console.log(error);
             });
     }
-    
-    const handleGoogleSignIn = () =>{
+
+    const handleGoogleSignIn = () => {
         googleSingIn(googleProvider)
-        .then(result =>{
-            const loggedUser = result.user;
-            toast("Google Sing In SuccessFully !");
-        })
-        .catch(error =>console.error(error));
+            .then(result => {
+                const loggedUser = result.user;
+                toast("Google Sing In SuccessFully !");
+            })
+            .catch(error => console.error(error));
+    }
+
+    const handleGihubSignIn = () => {
+        githubSingIn(githubProvider)
+            .then(result => {
+                const loggedUser = result.user;
+                toast("Github Sing In SuccessFully !");
+            })
+            .catch(error => console.error(error));
     }
 
     return (
@@ -84,7 +94,7 @@ const Login = () => {
                         </div>
                         <div className='flex justify-between px-8 mb-6'>
                             <button onClick={handleGoogleSignIn} className="btn btn-outline btn-primary flex gap-2">< FaGoogle />Google</button>
-                            <button className="btn btn-outline btn-primary flex gap-2">< FaGithub />GitHub</button>
+                            <button onClick={handleGihubSignIn} className="btn btn-outline btn-primary flex gap-2">< FaGithub />GitHub</button>
                         </div>
                         <p className='text-center mb-5 text-black'>
                             <Link to="/registration">New to Famous Chef ?<button className='btn btn-link p-2'>Please Register</button></Link>
