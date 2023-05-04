@@ -1,5 +1,5 @@
 import React, { useContext, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaGoogle, FaGithub } from 'react-icons/fa';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import { ToastContainer, toast } from 'react-toastify';
@@ -10,6 +10,10 @@ const Login = () => {
     const [error , setError] = useState('')
     const { signIn, passwordReset, googleSingIn, githubSingIn } = useContext(AuthContext);
     const emailRef = useRef();
+
+    const location = useLocation();
+    const navigate = useNavigate();
+    const from = location.state?.from?.pathname || '/'
 
     const googleProvider = new GoogleAuthProvider();
     const githubProvider = new GithubAuthProvider();
@@ -27,6 +31,8 @@ const Login = () => {
                 const loggedUser = result.user;
                 console.log(loggedUser);
                 form.reset();
+                setError('');
+                navigate(from, {replace:true})
             })
             .catch(error => {
                 setError(error.message)
