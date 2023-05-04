@@ -14,6 +14,7 @@ import BLog from './components/Blog/BLog.jsx';
 import RecipeDetails from './components/RecipeDetails/RecipeDetails.jsx';
 import ErrorPage from './components/ErrorPage/ErrorPage.jsx';
 import AuthProvider from './components/AuthProvider/AuthProvider.jsx';
+import PrivateRoute from './PrivateRoute/PrivateRoute.jsx';
 
 
 const router = createBrowserRouter([
@@ -27,11 +28,13 @@ const router = createBrowserRouter([
       },
       {
         path: "/blog",
-        element: <BLog></BLog>
+        element: <PrivateRoute>
+          <BLog></BLog>
+        </PrivateRoute>
       },
       {
         path:"/recipesDetails/:recipesId",
-        element: <RecipeDetails></RecipeDetails>
+        element: <PrivateRoute><RecipeDetails></RecipeDetails></PrivateRoute>
       },
       {
         path: "/login",

@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 
 const Header = () => {
@@ -17,10 +17,8 @@ const Header = () => {
             <nav className='flex items-center justify-between container mx-auto py-4'>
                 <h1 className='text-3xl font-serif text-logo-color'>Famous <small className='text-xl'>Chef</small></h1>
                 <div className='text-white flex items-center'>
-                    <Link className='ms-16 text-2xl font-serif' to="/">Home</Link>
-                    <Link className='ms-16 text-2xl font-serif' to="/blog">Blog</Link>
-                    <Link className='ms-16 text-2xl font-serif' to="/login">Login</Link>
-                    <Link className='ms-16 text-2xl font-serif' to="/registration">Registration</Link>
+                    <NavLink className='ms-16 text-2xl font-serif' to="/">Home</NavLink>
+                    <NavLink className='ms-16 text-2xl font-serif' to="/blog">Blog</NavLink>
 
                     <div className='ms-16 text-2xl'>
                         {
@@ -28,9 +26,13 @@ const Header = () => {
                                 <div className='flex items-center gap-8'>
                                     <img className='bg-transparent border-2 border-logo-color h-20 w-20 rounded-full' title={user.displayName} src={user.photoURL} alt="" />
                                     <button onClick={handleLogOut} className="btn btn-error">Log Out</button>
-                                </div> : <Link to="/login">
-                                    <button className="btn btn-error">LogIn</button>
-                                </Link>
+                                </div> :
+                                <NavLink to="/login">
+                                    <div className='flex items-center gap-8'>
+                                        <NavLink className='text-2xl font-serif' to="/registration">Registration</NavLink>
+                                        <button className="btn btn-error">LogIn</button>
+                                    </div>
+                                </NavLink>
                         }
                     </div>
                 </div>

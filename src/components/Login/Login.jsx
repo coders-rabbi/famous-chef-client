@@ -1,4 +1,4 @@
-import React, { useContext, useRef } from 'react';
+import React, { useContext, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaGoogle, FaGithub } from 'react-icons/fa';
 import { AuthContext } from '../AuthProvider/AuthProvider';
@@ -7,6 +7,7 @@ import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 
 
 const Login = () => {
+    const [error , setError] = useState('')
     const { signIn, passwordReset, googleSingIn, githubSingIn } = useContext(AuthContext);
     const emailRef = useRef();
 
@@ -25,9 +26,10 @@ const Login = () => {
             .then(result => {
                 const loggedUser = result.user;
                 console.log(loggedUser);
+                form.reset();
             })
             .catch(error => {
-                console.log(error)
+                setError(error.message)
             });
     }
 
@@ -88,6 +90,7 @@ const Login = () => {
                             <div className="form-control mt-10">
                                 <button className="btn btn-primary">Login</button>
                             </div>
+                            <p className='text-black'>{error}</p>
                         </form>
                         <div className='px-8'>
                             <button onClick={handlePasswordReset} className='btn btn-link p-0'>Forgot password?</button>

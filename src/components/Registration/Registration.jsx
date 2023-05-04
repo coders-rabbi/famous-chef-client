@@ -1,9 +1,10 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import { updateProfile } from 'firebase/auth';
 
 const Registration = () => {
+    const [error, setError] = useState('');
     const {Register} = useContext(AuthContext);
 
 
@@ -15,6 +16,9 @@ const Registration = () => {
         const photo = form.photo.value;
         const email = form.email.value;
         const password = form.password.value;
+        if(password.length < 6){
+            alert('Please enter more than 6 characters password');
+        }
         console.log(name,email, password);
 
         
