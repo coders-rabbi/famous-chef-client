@@ -17,7 +17,7 @@ const BLog = () => {
                         <h1 className='text-2xl font-semibold'><span className='font-bold'>Question:</span> Tell us the differences between uncontrolled and controlled components.</h1>
                         <p><span className='font-bold'>Answer:</span><small>Uncontrolled Components: Components that manage their own state internally, allowing users to directly interact with them without explicit control from a parent component. They have a one-way data flow and are often used for form inputs when immediate access to the input's DOM value is required. Controlled Components: Components whose state is managed by a parent component or an external entity. The state is passed down to the component through props, and any changes to the state are handled by the parent component. Controlled components have a two-way data flow and are commonly used for form inputs when validation and stricter control over the input values are needed.</small></p>
                     </div>
-                    <div>
+                    <div className='border'>
                         <h1 className='text-2xl font-semibold'><span className='font-bold'>Question:</span> How to validate React props using PropTypes</h1>
                         <p><span className='font-bold'>Answer:</span><small>In React, We can use the PropTypes library to validate the props passed to your components. PropTypes allow you to specify the expected types and shapes of the props, helping you catch potential bugs or incorrect usage of your components.</small></p>
                     </div>
