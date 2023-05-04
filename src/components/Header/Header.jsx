@@ -13,6 +13,7 @@ const Header = () => {
 
 
     return (
+        
         <div className='bg-header-bg shadow-lg border-b border-logo-color'>
             <nav className='flex items-center justify-between container mx-auto py-4'>
                 <h1 className='text-3xl font-serif text-logo-color'>Famous <small className='text-xl'>Chef</small></h1>
