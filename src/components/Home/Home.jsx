@@ -36,7 +36,7 @@ const Home = () => {
             
             <div className='mt-36'>
                 <h1 className='text-4xl font-bold text-center'>Our Famous Chef</h1>
-                <div className='mt-10 grid md:grid-cols-3 gap-5 mx-auto'>
+                <div className='mt-10 grid md:grid-cols-3 gap-5'>
                     {
                         chef.map(data => <Chef
                             key={data.id}
