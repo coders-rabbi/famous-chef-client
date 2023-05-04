@@ -16,7 +16,7 @@ const Chef = ({ chef }) => {
                     <div className='flex justify-betwee'>
                         <p className='mt-3 text-xl flex gap-2 items-center'><FontAwesomeIcon icon={faBookmark} /><small>Experiance:</small> {experiance}</p>
 
-                        <p className='mt-3 text-xl flex gap-2 items-center'><FontAwesomeIcon icon={faBowlFood} /> <small>Recipe :</small> {recipies}</p>
+                        <p className='mt-3 text-xl flex gap-2 items-center'><FontAwesomeIcon icon={faBowlFood} /> <small>Recipe:</small> {recipies}</p>
 
                         <p className='mt-3 text-xl flex gap-2 items-center'>< FaRegThumbsUp /> {likes}</p>
                     </div>
