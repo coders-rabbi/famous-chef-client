@@ -4,7 +4,7 @@ import about2 from '../../assets/about-02.png'
 
 const About = () => {
     return (
-        <div className='mt-36 flex items-center px-16'>
+        <div className='mt-36 md:flex items-center px-16'>
             <div className='container'>
                 <h1 className='text-3xl mb-5 text-logo-color'>About Us</h1>
                 <h1 className='text-4xl font-bold mb-10'>Heaven and Earth are <br />
@@ -24,8 +24,8 @@ const About = () => {
                 </button>
             </div>
             <div className='relative'>
-                <img src={about1} alt="" />
-                <img className='absolute text-white left-1 -bottom-40 -translate-x-1/2 -translate-y-1/2' src={about2} alt="" />
+                <img className='w-96 md:w-auto mx-auto mt-10 md:mt-0' src={about1} alt="" />
+                <img className='mx-auto text-center absolute text-white left-1 -bottom-40 -translate-x-1/2 -translate-y-1/2 w-40' src={about2} alt="" />
             </div>
         </div>
     );

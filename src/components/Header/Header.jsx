@@ -15,16 +15,16 @@ const Header = () => {
     return (
         
         <div className='bg-header-bg shadow-lg border-b border-logo-color'>
-            <nav className='flex items-center justify-between container mx-auto py-4'>
-                <h1 className='text-3xl font-serif text-logo-color'>Famous <small className='text-xl'>Chef</small></h1>
-                <div className='text-white flex items-center'>
+            <nav className='md:flex items-center md:justify-between container mx-auto py-4'>
+                <h1 className='text-3xl font-serif text-logo-color text-center md:text-left'>Famous <small className='text-xl'>Chef</small></h1>
+                <div className='text-white md:flex items-center text-center md:text-left'>
                     <NavLink className='ms-16 text-2xl font-serif' to="/">Home</NavLink>
                     <NavLink className='ms-16 text-2xl font-serif' to="/blog">Blog</NavLink>
 
                     <div className='ms-16 text-2xl'>
                         {
                             user ?
-                                <div className='flex items-center gap-8'>
+                                <div className='flex items-center justify-center gap-8'>
                                     <img className='bg-transparent border-2 border-logo-color h-20 w-20 rounded-full' title={user.displayName} src={user.photoURL} alt="" />
                                     <button onClick={handleLogOut} className="btn btn-error">Log Out</button>
                                 </div> :
